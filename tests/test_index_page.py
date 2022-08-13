@@ -5,6 +5,7 @@ from pom.index_page import Authorization
 @pytest.mark.usefixtures('setup')
 class TestAuthorization:
 
+    @pytest.mark.smoke
     def test_successful_login(self, get_webdriver):
         self.driver = get_webdriver
         step_auth = Authorization(get_webdriver)

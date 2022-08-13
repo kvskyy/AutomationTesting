@@ -7,6 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 @pytest.mark.usefixtures('setup_auth')
 class TestMainPageElements:
 
+    @pytest.mark.smoke
     def test_add_to_cart(self, get_webdriver):
         self.driver = get_webdriver
         step_mp = MainPageElements(get_webdriver)

@@ -3,3 +3,5 @@ selenium
 webdriver_manager
 webdriver-manager
 allure-pytest
+pytest-html
+pytest-rerunfailures
