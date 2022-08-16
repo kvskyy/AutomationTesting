@@ -1,5 +1,5 @@
 import pytest
-from pom.index_page import Authorization
+import allure
 from pom.main_page import MainPageElements
 from selenium.webdriver.support.ui import WebDriverWait
 
@@ -8,15 +8,19 @@ from selenium.webdriver.support.ui import WebDriverWait
 class TestMainPageElements:
 
     @pytest.mark.smoke
+    @allure.description('Проверка корзины')
     def test_add_to_cart(self, get_webdriver):
         self.driver = get_webdriver
         step_mp = MainPageElements(get_webdriver)
-        step_mp.find_btn_add_to_cart()
+        with allure.step('Добавляем товар в корзину'):
+            step_mp.find_btn_add_to_cart()
         step_mp.find_clickable_element()
-        step_mp.assert_cart_text()
+        with allure.step('Получаем результат'):
+            step_mp.assert_cart_text()
 
-    '''
-    def test_collapse_element(self):
+    '''def test_collapse_element(self):
         driver = self.driver
         step = MainPageElements(driver)
-        step.find_collapse_element()'''
+        step.find_collapse_element()
+        
+        '''

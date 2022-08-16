@@ -1,4 +1,5 @@
 import pytest
+import allure
 from pom.index_page import Authorization
 
 
@@ -6,14 +7,19 @@ from pom.index_page import Authorization
 class TestAuthorization:
 
     @pytest.mark.smoke
+    @allure.description('Правильный логин')
     def test_successful_login(self, get_webdriver):
         self.driver = get_webdriver
         step_auth = Authorization(get_webdriver)
-        step_auth.enter_correct_username()
-        step_auth.enter_correct_password()
+        with allure.step('Вводим юзернейм'):
+            step_auth.enter_correct_username()
+        with allure.step('Вводим пароль'):
+            step_auth.enter_correct_password()
         step_auth.click_login_button()
-        step_auth.setup_auth_assertion_text()
+        with allure.step('Получаем результат'):
+            step_auth.setup_auth_assertion_text()
 
+    @allure.description('Заблокированный пользователь')
     def test_locked_out_user(self, get_webdriver):
         self.driver = get_webdriver
         step_lock = Authorization(get_webdriver)

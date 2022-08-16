@@ -9,4 +9,6 @@ class IndexPageLocators:
     FIND_LOCKED_OUT_TEXT_CSS = 'div [class*=container]'
     FIND_BTN_ADD_TO_CART_ID = 'add-to-cart-sauce-labs-backpack'
     FIND_BACKPACK_ID = 'item_4_title_link'
+    FIND_CHECKOUT_BTN_ID = 'checkout'
+    FIND_CHECKOUT_CSS = 'div [class *=title]'
 
