@@ -5,3 +5,4 @@ webdriver-manager
 allure-pytest
 pytest-html
 pytest-rerunfailures
+pytest-html-reporter==0.2.9
