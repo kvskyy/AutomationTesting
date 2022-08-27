@@ -9,6 +9,8 @@ class TestCartPageElements:
 
     @pytest.mark.smoke
     @allure.description('Проверить checkout')
+    @allure.label('owner', 'Oleg')
+    @allure.severity(allure.severity_level.MINOR)
     def test_cart_page(self, get_webdriver):
         self.driver = get_webdriver
         step_cart = CartPageElements(get_webdriver)
@@ -18,3 +20,6 @@ class TestCartPageElements:
             step_cart.find_checkout_btn()
         with allure.step('Получить результат'):
             step_cart.assert_checkout_text()
+
+    def test_failed_result(self):
+        assert 1 == 2
