@@ -21,5 +21,18 @@ class TestCartPageElements:
         with allure.step('Получить результат'):
             step_cart.assert_checkout_text()
 
-    def test_failed_result(self):
-        assert 1 == 2
+    @pytest.mark.ui
+    def test_ui_scope(self):
+        assert 1 == 1
+
+    @pytest.mark.ui
+    def test_user_i(self):
+        assert 1 == 1
+
+    @pytest.mark.ui
+    def test_u_interface(self):
+        assert 1 == 1
+
+    @pytest.mark.ui
+    def test_user_interface(self):
+        assert 1 == 1

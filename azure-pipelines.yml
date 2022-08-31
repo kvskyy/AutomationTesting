@@ -1,3 +1,20 @@
+parameters:
+- name: subscription
+  displayName: scope of testing
+  type: string
+  default: regression
+  values:
+  - regression
+  - ui
+  - api
+
+schedules:
+- cron: "0 0 * * *"
+  displayName: Daily midnight build
+  branches:
+    include:
+    - master
+
 trigger:
 - master
 
@@ -21,8 +38,15 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: |
-      python -m pytest -v -s --junitxml=result.xml -o junit_family="xunit1"
+    ${{ if contains(parameters.subscription, 'regression') }}:
+      script: |
+        python -m pytest -v -s --junitxml=result.xml -o junit_family="xunit1"
+    ${{ if contains(parameters.subscription, 'ui') }}:
+      script: |
+        python -m pytest -v -s -k "ui" --junitxml=result.xml -o junit_family="xunit1"
+    ${{ if contains(parameters.subscription, 'api') }}:
+      script: |
+        python -m pytest -v -s -k "api" --junitxml=result.xml -o junit_family="xunit1"
   displayName: 'pytest'
   continueOnError: true
 

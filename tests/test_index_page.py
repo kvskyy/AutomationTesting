@@ -28,4 +28,18 @@ class TestAuthorization:
         step_lock.click_login_button()
         step_lock.locked_assertion()
 
+    @pytest.mark.sanity
+    def test_sanity_up(self):
+        assert 1 == 1
 
+    @pytest.mark.sanity
+    def test_sanity_down(self):
+        assert 1 == 1
+
+    @pytest.mark.sanity
+    def test_sanity_left(self):
+        assert 1 == 1
+
+    @pytest.mark.sanity
+    def test_sanity_right(self):
+        assert 1 == 1

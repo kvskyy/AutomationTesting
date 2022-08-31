@@ -24,3 +24,19 @@ class TestMainPageElements:
         step.find_collapse_element()
         
         '''
+
+    @pytest.mark.smoke
+    def test_smoke_1(self):
+        assert 1 == 1
+
+    @pytest.mark.smoke
+    def test_smoke_2(self):
+        assert 1 == 1
+
+    @pytest.mark.smoke
+    def test_smoke_3(self):
+        assert 1 == 1
+
+    @pytest.mark.smoke
+    def test_smoke_4(self):
+        assert 1 == 1
