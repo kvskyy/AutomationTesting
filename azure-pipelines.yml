@@ -13,7 +13,8 @@ parameters:
   displayName: Daily midnight build
   branches:
     include:
-    - master'''
+    - master
+'''
 
 trigger:
 - master
